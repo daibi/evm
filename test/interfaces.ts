@@ -8,6 +8,7 @@ const IRMRKEmoteTracker = '0x64148b98';
 const IRMRKEquippable = '0x28bc9ae4';
 const IRMRKExternalEquip = '0x289dfee5';
 const IRMRKMultiAsset = '0xd1526708';
+const IRMRKMultiAssetAutoIndex = '0x1cf132fe';
 const IRMRKNestable = '0x42b0e56f';
 const IRMRKNestableAutoIndex = '0x1884d52d';
 const IRMRKNestableExternalEquip = '0x8b7f3e99';
@@ -27,6 +28,7 @@ export {
   IRMRKEquippable,
   IRMRKExternalEquip,
   IRMRKMultiAsset,
+  IRMRKMultiAssetAutoIndex,
   IRMRKNestable,
   IRMRKNestableAutoIndex,
   IRMRKNestableExternalEquip,
