@@ -4,6 +4,7 @@ pragma solidity ^0.8.16;
 
 import "./IRMRKMultiAssetAutoIndex.sol";
 import "../../multiasset/RMRKMultiAsset.sol";
+import "hardhat/console.sol";
 
 contract RMRKMultiAssetAutoIndex is IRMRKMultiAssetAutoIndex, RMRKMultiAsset {
     // Mapping of tokenId to assetId to index on the _pendingAssetIndex array

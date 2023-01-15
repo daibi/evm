@@ -22,6 +22,8 @@ describe('RMRKMultiAssetAutoIndexMock', async function () {
   let owner: SignerWithAddress;
   let user: SignerWithAddress;
   let tokenId = bn(1);
+  let user: SignerWithAddress;
+  let tokenId = bn(1);
 
   beforeEach(async function () {
     [owner, user] = await ethers.getSigners();
