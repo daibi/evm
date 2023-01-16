@@ -123,10 +123,28 @@ describe('RMRKMultiAssetAutoIndexMock', async function () {
       await token.connect(user)['acceptAsset(uint256,uint64)'](tokenId, assetTwoId);
       expect(await token.getPendingAssets(tokenId)).to.be.eql([]);
       expect(await token.getActiveAssets(tokenId)).to.be.eql([asseOneId, assetThreeId, assetTwoId]);
-    }); 
+    });
 
+    describe('With multiple assets in the active list', async function () {
+
+      const assetFourId = bn(4);
+
+      beforeEach(async function () {
+        await token.connect(user)['acceptAsset(uint256,uint64)'](tokenId, asseOneId);
+        await token.connect(user)['acceptAsset(uint256,uint64)'](tokenId, assetThreeId);
+        await token.connect(user)['acceptAsset(uint256,uint64)'](tokenId, assetTwoId);
+  
+      });
+
+      it('can replace the first active asset', async function () {
+        await token.connect(owner).addAssetEntry(assetFourId, "ipfs/asset4.json");
+        await token.connect(owner).addAssetToToken(tokenId, assetFourId, asseOneId);
+        await token.connect(user)['acceptAsset(uint256,uint64)'](tokenId, assetFourId);
+        expect(await token.getPendingAssets(tokenId)).to.be.eql([]);
+        expect(await token.getActiveAssets(tokenId)).to.be.eql([assetFourId, assetThreeId, assetTwoId]);
+      });
+    });
   });
-
 
 
 });
